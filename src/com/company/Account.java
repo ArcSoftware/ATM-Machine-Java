@@ -8,8 +8,9 @@ import java.util.ArrayList;
 public class Account {
     String name;
     String pin;
-    double balance;
-    //double startCash = 100;
+    double balance = 100;
+    String create;
+    boolean makeUser;
 
 
 
@@ -33,11 +34,24 @@ public class Account {
         if (pin.length() != 4) {
             throw new Exception("Pin entered is not a valid pin number.");
         } else {
-            System.out.println("Thank you. Welcome " + "!");
+            System.out.println("Thank you. Welcome " + name + "!");
         }
 
     }
     public static double startCash = 100;
+
+    public void createUser() throws Exception {
+        System.out.println("No account found for \"" + name + "\". \n Would you like to create one?");
+        create = Main.inputScanner.nextLine();
+
+        if (create.contains("y") || create.contains("Y")) {
+            makeUser = true;
+        } else {
+            makeUser = false;
+        }
+
+
+    }
 
 
 
