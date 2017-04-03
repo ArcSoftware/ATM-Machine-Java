@@ -35,7 +35,6 @@ public class Main {
                     accounts.add(user);
                     currentUser = user;
                     System.out.println("An account has been created for you with $100.00 to spend on us. /dance \n");
-
                 }
                 else {
                     System.out.println("Good.. we didn't want your money anyways. \n");

@@ -46,6 +46,7 @@ public class RootMenu {
             double deposit = Double.parseDouble(depositAmount);
 
             currentBalance = (currentBalance + deposit);
+            Main.currentUser.balance += deposit;
             System.out.format("Thank you for your deposit. \nYou have $%.2f left in your account.\n", currentBalance);
 
 
