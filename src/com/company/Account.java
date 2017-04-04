@@ -8,9 +8,10 @@ import java.util.ArrayList;
 public class Account {
     String name;
     String pin;
-    double balance = 100;
+    double checking = 100.00;
     String create;
     boolean makeUser;
+    double savings = 500.00;
 
 
 
