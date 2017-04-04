@@ -10,7 +10,7 @@ public class Main {
     public static Account currentUser;
     public static RootMenu root = new RootMenu();
     public static boolean end = false;
-    public static ArrayList<Account> accounts = new ArrayList<>();
+    public static HashMap<String, Account> accounts = new HashMap<>();
     public static boolean run = true;
 
 
@@ -21,18 +21,15 @@ public class Main {
             Account user = new Account();
             user.getName();
             currentUser = null;
-            for (int i = 0; i < accounts.size(); i++) {
-                Account a = accounts.get(i);
-                if (user.name.equals(a.name)) {
-                    currentUser = a;
-                }
-            }
 
-            if (currentUser == null) {
+            if (accounts.containsKey(user.name)) {
+                currentUser = accounts.get(user.name);
+            } else {
                 System.out.println("No account found under that name, would you like to create one?");
                 String createAccount = Main.inputScanner.nextLine();
                 if (createAccount.contains("y") || createAccount.contains("Y")||createAccount.equalsIgnoreCase("create") || createAccount.contains("new")) {
-                    accounts.add(user);
+
+                    accounts.put(user.name, user);
                     currentUser = user;
                     System.out.println("An account has been created for you with $100.00 to spend on us. /dance \n");
                 }
