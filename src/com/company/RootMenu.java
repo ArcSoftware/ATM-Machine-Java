@@ -149,8 +149,18 @@ public class RootMenu {
                     System.out.println("How much of your money would you like to transfer to " + transfer + "'s account?");
                     String transferAmount = Main.inputScanner.nextLine();
                     Double.valueOf(transferAmount);
+                    //Main.accounts.get(transfer).savings = Main.accounts.get(transfer).savings - transferAmount;
+                    // Get the account money is coming from
+                   // Main.currentUser;
+
+                    // Get the account money is going to
+                    //Main.accounts.get(transfer);
+
+                    // If there's enough in the source account, transfer
+
                     //Main.accounts.replace("transfer", currentBalance + transferAmount);
                 }
+
             }
 
         }
