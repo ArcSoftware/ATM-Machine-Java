@@ -1,4 +1,6 @@
-package com.company;
+package it.pkg;
+
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,10 +17,16 @@ public class Main {
 
 
     public static void main(String[] args) throws Exception {
+        Gson gson = new Gson();
+
+        // just making sure that we don't optimize out the usage of gson
+        // because it has no references in the project
+        // because maybe the compiler will do that.
+        gson.toJson(new Object());
 
         while(run == true)
         {
-            System.out.println("Welcome to Jake's ATM.");
+            System.out.println("Welcome to Jake's basic.");
             Account user = new Account();
             user.getName();
             currentUser = null;
