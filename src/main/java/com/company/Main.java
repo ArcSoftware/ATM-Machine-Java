@@ -1,12 +1,17 @@
 package com.company;
 
 import com.google.gson.Gson;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class Main {
+public class Main extends Application {
 
     public static Scanner inputScanner = new Scanner(System.in);
     public static Account currentUser;
@@ -16,12 +21,18 @@ public class Main {
     public static boolean run = true;
 
 
+    @Override //run when the app starts
+    public void start(Stage primaryStage) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        primaryStage.setTitle("Hello World");
+        primaryStage.setScene(new Scene(root, 800, 600));
+        primaryStage.show();
+    }
+
     public static void main(String[] args) throws Exception {
         Gson gson = new Gson();
 
-        // just making sure that we don't optimize out the usage of gson
-        // because it has no references in the project
-        // because maybe the compiler will do that.
+
         gson.toJson(new Object());
 
         while(run == true)
