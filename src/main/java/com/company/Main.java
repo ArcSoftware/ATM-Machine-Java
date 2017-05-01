@@ -5,8 +5,10 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -22,18 +24,34 @@ public class Main extends Application {
 
 
     @Override //run when the app starts
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+    public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("resources/FX.fxml"));
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
+
+        TextArea textArea = new TextArea();
+
+//        primaryStage.setScene(new Scene(textArea));
+//        primaryStage.show();
+
+        System.setOut(new PrintStream(System.out) {
+            @Override
+            public void write(byte[] buf, int off, int len) {
+                super.write(buf, off, len);
+
+                String msg = new String(buf, off, len);
+
+                textArea.setText(textArea.getText() + msg);
+            }
+        });
     }
+
 
     public static void main(String[] args) throws Exception {
         Gson gson = new Gson();
-
-
         gson.toJson(new Object());
+
 
         while(run == true)
         {
